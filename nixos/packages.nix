@@ -107,7 +107,6 @@ in {
     rustup
     go
     openssl
-    openssl.dev
     pkg-config
 
     asdf-vm
@@ -126,5 +125,9 @@ in {
     python311Packages.python-lsp-server
 
     neovim
+  ];
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    openssl.dev
   ];
 }
