@@ -117,6 +117,7 @@ in {
     postgresql
     k9s
 
+    direnv
     alejandra
     nil
     nodePackages.prettier
