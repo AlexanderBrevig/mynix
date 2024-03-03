@@ -1,12 +1,11 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.sessionVariables = rec {
-    XDG_CACHE_HOME  = "$HOME/.cache";
+    XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_HOME   = "$HOME/.local/share";
-    XDG_STATE_HOME  = "$HOME/.local/state";
-    XDG_BIN_HOME    = "$HOME/.local/bin";
-    # PATH = [ 
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
+    XDG_BIN_HOME = "$HOME/.local/bin";
+    # PATH = [
     #   "/run/current-system/sw/bin"
     #   "${XDG_BIN_HOME}"
     # ];
@@ -16,6 +15,7 @@
     MOZ_ENABLE_WAYLAND = "1";
     XCURSOR_THEME = "Adwaita";
     GTK_THEME = "Adwaita";
+    EDITOR = "hx";
   };
 
   security.polkit.enable = true;
@@ -38,9 +38,9 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
-  # Enable the gnome-keyrig secrets vault. 
+  # Enable the gnome-keyrig secrets vault.
   # Will be exposed through DBus to programs willing to store secrets.
   services.gnome.gnome-keyring.enable = true;
 

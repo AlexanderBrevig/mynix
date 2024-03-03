@@ -1,5 +1,10 @@
-{ inputs, lib, config, pkgs, ... }:
 {
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-gpu-amd
@@ -13,7 +18,6 @@
   ];
 
   hardware.enableRedistributableFirmware = true;
-  
 
   nixpkgs = {
     overlays = [
@@ -31,8 +35,8 @@
   environment.etc =
     lib.mapAttrs'
     (name: value: {
-	      name = "nix/path/${name}";
-	      value.source = value.flake;
+      name = "nix/path/${name}";
+      value.source = value.flake;
     })
     config.nix.registry;
 
@@ -43,25 +47,27 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.kernelModules = [ 
-    "amdgpu" 
-    "snd_pci_acp6x" 
+  boot.initrd.kernelModules = [
+    "amdgpu"
+    "snd_pci_acp6x"
     "snd_soc_acp6x_mach"
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPatches = [ {
-    name = "enable-amd-mic";
-    patch = null;
-    extraConfig = ''
-            SND_SOC m
-            SND_SOC_AMD_ACP6x m
-            SND_SOC_AMD_YC_MACH m
-    '';
-  } ];
-  boot.kernelParams = [ 
-    "snd_hda_intel.dmic_detect=0" 
-    "snd-intel-dspcfg.dsp_driver=3" 
+  boot.kernelPatches = [
+    {
+      name = "enable-amd-mic";
+      patch = null;
+      extraConfig = ''
+        SND_SOC m
+        SND_SOC_AMD_ACP6x m
+        SND_SOC_AMD_YC_MACH m
+      '';
+    }
+  ];
+  boot.kernelParams = [
+    "snd_hda_intel.dmic_detect=0"
+    "snd-intel-dspcfg.dsp_driver=3"
   ];
 
   hardware.bluetooth.enable = true;
@@ -78,9 +84,9 @@
   };
 
   programs.gnupg.agent = {
-     enable = true;
-     # pinentryFlavor = "curses";
-     enableSSHSupport = true;
+    enable = true;
+    # pinentryFlavor = "curses";
+    enableSSHSupport = true;
   };
 
   virtualisation.docker.enable = true;
