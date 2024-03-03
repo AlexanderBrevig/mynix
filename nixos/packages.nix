@@ -90,6 +90,7 @@ in {
     pavucontrol
     killall
     pciutils
+    libnotify
 
     bitwarden
     bitwarden-cli
