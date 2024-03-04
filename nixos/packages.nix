@@ -91,6 +91,7 @@ in {
     killall
     pciutils
     libnotify
+    asciinema
 
     bitwarden
     bitwarden-cli
@@ -125,6 +126,7 @@ in {
     yaml-language-server
     nodePackages.bash-language-server
     python311Packages.python-lsp-server
+    marksman
 
     neovim
   ];
