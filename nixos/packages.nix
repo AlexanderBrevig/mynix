@@ -100,6 +100,7 @@ in {
     gimp
     google-chrome
     slack
+    element-desktop
 
     gnumake
     cmake
