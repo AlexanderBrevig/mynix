@@ -88,6 +88,7 @@ in {
     wl-mirror
     wireplumber
     pulseaudio
+    alsa-utils
     pavucontrol
     killall
     pciutils
