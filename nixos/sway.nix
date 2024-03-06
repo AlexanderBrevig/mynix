@@ -26,7 +26,7 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
-    # wireplumber.enable = true;
+    wireplumber.enable = true;
   };
 
   services.dbus.enable = true;

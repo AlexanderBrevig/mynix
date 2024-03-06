@@ -67,7 +67,7 @@
   ];
   boot.kernelParams = [
     "snd_hda_intel.dmic_detect=0"
-    "snd-intel-dspcfg.dsp_driver=3"
+    "snd_intel_dspcfg.dsp_driver=3"
   ];
 
   hardware.bluetooth.enable = true;
