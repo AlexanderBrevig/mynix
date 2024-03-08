@@ -65,6 +65,7 @@ in {
     lolcat
     pinentry
     gh
+    ouch
 
     dbus
     dbus-sway-environment

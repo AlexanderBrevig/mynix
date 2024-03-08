@@ -11,6 +11,12 @@
     };
   };
 
+  nix.settings.trusted-users = [
+    "root"
+    "ab"
+    "@wheel"
+  ];
+
   networking.hostName = "abdev";
   time.timeZone = "Europe/Oslo";
 
