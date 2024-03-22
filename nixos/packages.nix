@@ -107,6 +107,7 @@ in {
 
     gnumake
     cmake
+    just
     libgcc
     clang
     python3
